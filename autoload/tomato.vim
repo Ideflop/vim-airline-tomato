@@ -1,15 +1,11 @@
 scriptencoding utf-8
 
 let s:lang = exists('g:tomato#lang') ? g:tomato#lang : 'english'
-let s:interval = exists('g:tomato#interval') ? g:tomato#interval : 25*60
+let s:interval = exists('g:tomato#interval') ? g:tomato#interval : 50*60
 let s:ar_num = exists('g:tomato#auto_reset_num') ? g:tomato#auto_reset_num : 24*60*60 / s:interval
-let s:rest_time = exists('g:tomato#rest_time') ? g:tomato#rest_time : 5*60
-let s:remind = "Tomato"
-let s:restinfo = "Take a rest"
-if s:lang == "chinese"
-    let s:remind = "番茄"
-    let s:restinfo = "休息下"
-endif
+let s:rest_time = exists('g:tomato#rest_time') ? g:tomato#rest_time : 10*60
+let s:remind = "🍅"
+let s:restinfo = "⏳"
 let s:show_clock = 0
 let s:show_count_down = 0
 
@@ -20,11 +16,17 @@ let s:tomato_file = expand("~/.tomato-vim")
 let s:show_clock = exists('g:tomato#show_clock') ? g:tomato#show_clock : s:show_clock
 let s:show_count_down = exists('g:tomato#show_count_down') ? g:tomato#show_count_down : s:show_count_down
 
+let g:tomato_enabled = 0
+
 function! tomato#reset() abort
     call writefile([1], s:tomato_file)
 endfunction
 
 function! tomato#get() abort
+    if !g:tomato_enabled
+        return ""
+    endif
+
     let n = 1
     let s:clock = 0
     let s:remindtext = ""
@@ -57,4 +59,15 @@ function! tomato#get() abort
     else
         return printf("%s[%d]",s:remindtext,n)
     endif
+endfunction
+
+
+function! tomato#start() abort
+    call writefile([1], s:tomato_file)
+    let g:tomato_enabled = 1
+endfunction
+
+function! tomato#stop() abort
+    call writefile([0], s:tomato_file)
+    let g:tomato_enabled = 0
 endfunction
