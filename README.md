@@ -1,10 +1,29 @@
 # vim-airline-tomato
 
   
-## Introduction
-This is a vim-airline extension for an easy application of the [Pomodoro Technique](http://en.wikipedia.org/wiki/Pomodoro_Technique).
-This is a fork from [Zuckonit](https://github.com/Zuckonit/vim-airline-tomato)
+vim-airline-tomato is a Vim extension that allows users to easily apply the [Pomodoro Technique](http://en.wikipedia.org/wiki/Pomodoro_Technique) in their editor. It is a fork of [Zuckonit](https://github.com/Zuckonit/vim-airline-tomato) and is based on [vim-airline](https://github.com/vim-airline/vim-airline) plugin.
+
+With vim-airline-tomato, users can start and stop a Pomodoro timer and see the current time and remaining time displayed in the Vim status line. The extension also supports customizing the working and rest times, as well as the text displayed for each phase.
+
+## Features
+
+- Easy application of the Pomodoro Technique in Vim
+- Customizable working and rest times
+- Clock and countdown display options
+- Automatic reset of the Pomodoro count after a specified number of Pomodoros
   
+## Installation
+
+To install vim-airline-tomato, use one of the following methods:
+
+Using Vim's native package manager
+```
+git clone https://github.com/Ideflop/vim-airline-tomato.git ~/.vim/pack/plugins/start/vim-airline-tomato/
+```
+
+Using a plugin manager (e.g. Vundle, Pathogen)
+
+Refer to the documentation of your chosen plugin manager for instructions on how to install vim-airline-tomato.
    
 ## Configuration
 
@@ -39,21 +58,24 @@ let g:tomato#show_clock = 1
 let g:tomato#show_count_down = 1 
 ```
 
-## Start (start the clock and a pomodoro and display it)
-Manually start
-```
+## Usage
+
+To start the Pomodoro timer and display it in the status line, run the following command in Vim:
+
+``` 
 :call tomato#start()
 ```
-Once the ``` tomato#start() ``` was called, the clock will run even when vim is not runnig. So the next time vim is reopend the clock will still be running and being shown
 
-## Stop (stop the clock and remove it)
-Manually stop
+Note that the timer will continue to run even when Vim is not open, so the next time you open Vim the timer will still be running and displayed in the status line.
+
+To stop the Pomodoro timer and remove it from the status line, run the following command in Vim:
+
 ```
 :call tomato#stop()
 ```
 
-## Reset (reset the count of tomato to be one)
-Manually reset
+To reset the Pomodoro count to 1, run the following command in Vim:
+
 ```
 :call tomato#reset()
 ```
@@ -67,7 +89,8 @@ if there is no ``` g:tomato#auto_reset_num``` in your config, the default ``` au
 
 
 ## troubleshooting
-It's possible that some fonds need to be installed :
+
+If you encounter issues while using vim-airline-tomato, it may be necessary to install certain fonts:
 
 [Airline](https://github.com/bling/vim-airline): The extension is based on vim-airline (like powerline, but faster and with a deeper KISS flavor)
 [powerline-font](https://github.com/Lokaltog/powerline-fonts): if you use wild char's, you may need install powerline font.
@@ -75,4 +98,5 @@ It's possible that some fonds need to be installed :
 [pomicons](https://github.com/gabrielelana/pomicons): This is a font with 8 symbols to talk about the "Pomodoro Technique"® (You can use these special symbols to change the configuration). You can use one of the [awesome-terminal-fonts](https://github.com/gabrielelana/awesome-terminal-fonts) that contains both powerline and pomicons symbols.
 
 ## Screenshot
+
 ![pomicons](/screenshot/screenshot.png)
