@@ -1,6 +1,5 @@
 # vim-airline-tomato
 
-==================
   
 ## Introduction
 This is a vim-airline extension for an easy application of the [Pomodoro Technique](http://en.wikipedia.org/wiki/Pomodoro_Technique).
@@ -11,56 +10,57 @@ This is a fork from [Zuckonit](https://github.com/Zuckonit/vim-airline-tomato)
 
 If you want to change the working time:
 ```
-    let g:tomato#interval = 60 * 60
+let g:tomato#interval = 60 * 60
 ```
   
 If you wat to change rest time:
 ```
-    let g:tomato#rest_time = 20 * 60
+let g:tomato#rest_time = 20 * 60
 ```
   
 If you want to change working text:
 ```
-    let g:tomato#remind = "🍅"
+let g:tomato#remind = "🍅"
 ```
   
 If you want to change rest text:
 ```
-    let g:tomato#restinfo = "⏳"
+let g:tomato#restinfo = "⏳"
 ```
 
 If you want to enable clock:
 ```
-    let g:tomato#show_clock = 1
+let g:tomato#show_clock = 1
 ```
 
 If you want to show a count down:
 ```
-    let g:tomato#show_clock = 1  
-    let g:tomato#show_count_down = 1 
+let g:tomato#show_clock = 1  
+let g:tomato#show_count_down = 1 
 ```
 
 ## Start (start the clock and a pomodoro and display it)
 Manually start
 ```
-    :call tomato#start()
+:call tomato#start()
 ```
+Once the ``` tomato#start() ``` was called, the clock will run even when vim is not runnig. So the next time vim is reopend the clock will still be running and being shown
 
 ## Stop (stop the clock and remove it)
 Manually stop
 ```
-    :call tomato#stop()
+:call tomato#stop()
 ```
 
 ## Reset (reset the count of tomato to be one)
 Manually reset
 ```
-    :call tomato#reset()
+:call tomato#reset()
 ```
   
 Set auto reset when number over a value
 ```
-    let g:tomato#auto_reset_num = 24 (here put the number you wanna set)  
+let g:tomato#auto_reset_num = 24 (here put the number you wanna set)  
 ```
 if the ``` g:tomato#auto_reset_num = -1 ``` , then the auto reset will be forbidden  
 if there is no ``` g:tomato#auto_reset_num``` in your config, the default ``` auto_reset_num is 24 * 60 / g:tomato#interval ```, the total tomato numbers of one day.
