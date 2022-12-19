@@ -1,6 +1,5 @@
 scriptencoding utf-8
 
-let s:lang = exists('g:tomato#lang') ? g:tomato#lang : 'english'
 let s:interval = exists('g:tomato#interval') ? g:tomato#interval : 50*60
 let s:ar_num = exists('g:tomato#auto_reset_num') ? g:tomato#auto_reset_num : 24*60*60 / s:interval
 let s:rest_time = exists('g:tomato#rest_time') ? g:tomato#rest_time : 10*60
@@ -60,7 +59,6 @@ function! tomato#get() abort
         return printf("%s[%d]",s:remindtext,n)
     endif
 endfunction
-
 
 function! tomato#start() abort
     call writefile([1], s:tomato_file)
